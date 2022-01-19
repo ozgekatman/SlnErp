@@ -7,8 +7,10 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SlnErp102.Api.DTOs;
 using SlnErp102.Api.DTOs.Stocks.Product;
 using SlnErp102.Core.Models.Stocks.Products;
+using SlnErp102.Core.Service.Infos.Companies;
 using SlnErp102.Core.Service.Stocks.Products;
 
 namespace SlnErp102.Api.Controllers.Stocks.Products
@@ -18,19 +20,38 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
     public class ProductEntriesController : ControllerBase
     {
         private readonly IProductEntryService _service;
+        private readonly ICompanyService _cservice;
+        private readonly IStockStateService _sservice;
         private readonly IMapper _mapper;
 
-        public ProductEntriesController(IProductEntryService service, IMapper mapper)
+        public ProductEntriesController(IProductEntryService service, ICompanyService cservice, IStockStateService sservice, IMapper mapper)
         {
             _service = service;
+            _cservice = cservice;
+            _sservice = sservice;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductEntry>>> GetProductEntry()
         {
-            var pro = await _service.GetAllAsync();
-            return Ok(_mapper.Map<IEnumerable<ProductEntryDto>>(pro));
+           // var pro = await _service.GetAllAsync();
+            var test = await _service.DistinctListByCompany();
+            ProductEntryDistinct p = new ProductEntryDistinct();
+            foreach (var item in test)
+            {
+                var company=await _cservice.GetByIdAsync(item.CompanyId);
+                if (company == null)
+                {
+                    return NotFound();
+                }
+                p.CompanyId=item.CompanyId;
+                p.CompanyName=company.Name;
+                p.EntryDate = item.EntryDate;
+                p.InvoiceNumber=item.InvoiceNumber;
+                return Ok(_mapper.Map<ProductEntryDistinctDto>(p));
+            }//Product classından distincte doğru mapledik.Eksik var.ProductEntryDistinct classı oluşturmalıyız
+            return BadRequest();
         }
 
         [HttpGet("{id}")]
@@ -47,7 +68,6 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
             {
                 return BadRequest();
             }
-
             var pro = await _service.GetByIdAsync(id);
             pro.CompanyId = productEntryDto.CompanyId;
             pro.InvoiceNumber = productEntryDto.InvoiceNumber;
@@ -56,21 +76,22 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
             pro.LotSerial = productEntryDto.LotSerial;
             pro.Quantity = productEntryDto.Quantity;
             pro.EntryTypeId = productEntryDto.EntryTypeId;
-            pro.SurgerySide = productEntryDto.SurgerySide;
-            pro.SurgeryType = productEntryDto.SurgeryType;
+            //pro.SurgerySide = productEntryDto.SurgerySide;
+            //pro.SurgeryType = productEntryDto.SurgeryType;
             pro.Barcode = productEntryDto.Barcode;
             pro.Description = productEntryDto.Description;
             pro.ProductionDate = productEntryDto.ProductionDate;
             pro.ExpirationDate = productEntryDto.ExpirationDate;
-            _service.Update(_mapper.Map<ProductEntry>(pro));
+            _service.Update(pro);
             return NoContent();
         }
 
         [HttpPost]
         public async Task<ActionResult<ProductEntry>> PostProductEntry(ProductEntryDto productEntryDto)
         {
-            var pro = await _service.AddAsync(_mapper.Map<ProductEntry>(productEntryDto));
-            return Created(string.Empty, _mapper.Map<ProductEntryDto>(pro));
+            var pro = await _service.AddRangeAsync(_mapper.Map<IEnumerable<ProductEntry>>(productEntryDto));
+            //_sservice.AddAsync
+            return Created(string.Empty, _mapper.Map<IEnumerable<ProductEntryDto>>(pro));
         }
 
         [HttpDelete("{id}")]

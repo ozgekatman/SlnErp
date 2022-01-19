@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SlnErp102.Api.DTOs;
 using SlnErp102.Api.DTOs.Info;
 using SlnErp102.Api.DTOs.Info.Companies;
 using SlnErp102.Api.DTOs.Info.Doctors;
@@ -65,6 +66,9 @@ namespace SlnErp102.Api.Mapping
 
             CreateMap<StockState, StockStateDto>();
             CreateMap<StockStateDto, StockState>();
+
+            CreateMap<ProductEntryDistinct, ProductEntryDistinctDto>();//Değişiklikler
+            CreateMap<ProductEntryDistinctDto, ProductEntryDistinct>();
         }
     }
 }

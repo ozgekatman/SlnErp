@@ -64,6 +64,25 @@ namespace SlnErp102.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tblStockStates",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LotSerial = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    StockQuantity = table.Column<int>(type: "int", nullable: false),
+                    ShelfQuantity = table.Column<int>(type: "int", nullable: false),
+                    BranchQuantity = table.Column<int>(type: "int", nullable: false),
+                    ConsigneeQuantity = table.Column<int>(type: "int", nullable: false),
+                    TransferedProductQuantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tblStockStates", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tblDoctors",
                 columns: table => new
                 {
@@ -349,6 +368,42 @@ namespace SlnErp102.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tblProductEntries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyId = table.Column<int>(type: "int", nullable: true),
+                    InvoiceNumber = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    EntryDate = table.Column<DateTime>(type: "date", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    LotSerial = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    EntryTypeId = table.Column<int>(type: "int", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    ProductionDate = table.Column<DateTime>(type: "date", nullable: false),
+                    ExpirationDate = table.Column<DateTime>(type: "date", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "date", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "date", nullable: false),
+                    ModifiedUser = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tblProductEntries", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tblProductEntries_tblCompanies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "tblCompanies",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_tblProductEntries_tblProducts_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "tblProducts",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tblHospitalDetails",
                 columns: table => new
                 {
@@ -442,9 +497,9 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "CompanyTypeId", "CreatedOn", "ModifiedOn", "ModifiedUser", "Name" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3304), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3306), "system", "Ortek" },
-                    { 2, 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3308), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3309), "system", "Syntex" },
-                    { 3, 3, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3310), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3311), "system", "Kayacan" }
+                    { 1, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8082), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8083), "system", "Ortek" },
+                    { 2, 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8085), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8086), "system", "Syntex" },
+                    { 3, 3, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8088), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8088), "system", "Kayacan" }
                 });
 
             migrationBuilder.InsertData(
@@ -452,9 +507,9 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "BirthDay", "CityId", "ClinicAddress", "CreatedOn", "ModifiedOn", "ModifiedUser", "Name", "Title" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3475), 1, "Fulya/Besiktas", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3477), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3478), "system", "Omer Taser", 0 },
-                    { 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3479), 1, "Tesvikiye/Sisli", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3480), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3481), "system", "Mehmet Demirhan", 0 },
-                    { 3, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3482), 1, "Abide-i Hürriyet Cd No:166, 34381 Şişli/İstanbul", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3483), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3484), "system", "Azmi Hamzaoglu", 0 }
+                    { 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8197), 1, "Fulya/Besiktas", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8198), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8198), "system", "Omer Taser", 0 },
+                    { 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8200), 1, "Tesvikiye/Sisli", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8201), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8202), "system", "Mehmet Demirhan", 0 },
+                    { 3, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8203), 1, "Abide-i Hürriyet Cd No:166, 34381 Şişli/İstanbul", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8203), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8204), "system", "Azmi Hamzaoglu", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -462,9 +517,9 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "BirthDay", "CityId", "CreatedOn", "Description", "ModifiedOn", "ModifiedUser", "Name", "Picture", "WorkEnd", "WorkStart" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3760), 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3761), "Aciklama1", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3762), "system", "Serdar", "user1.png", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3759), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3757) },
-                    { 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3765), 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3766), "Aciklama2", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3767), "system", "Recep", "user2.png", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3764), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3764) },
-                    { 3, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3769), 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3770), "Aciklama3", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3771), "system", "Melek", "user3.png", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3769), new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(3768) }
+                    { 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8343), 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8344), "Aciklama1", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8345), "system", "Serdar", "user1.png", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8342), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8341) },
+                    { 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8347), 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8348), "Aciklama2", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8349), "system", "Recep", "user2.png", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8347), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8346) },
+                    { 3, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8351), 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8352), "Aciklama3", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8352), "system", "Melek", "user3.png", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8351), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8350) }
                 });
 
             migrationBuilder.InsertData(
@@ -472,15 +527,15 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "CreatedOn", "HospitalName", "HospitalTypeId", "ModifiedOn", "ModifiedUser" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2335), "AciBadem", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2321), "system" },
-                    { 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2340), "Florence Nightingale", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2339), "system" },
-                    { 3, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2345), "Medicana", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2343), "system" },
-                    { 4, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2349), "Beylikduzu Devlet", 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2347), "system" },
-                    { 5, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2351), "KANUNİ SULTAN SÜLEYMAN", 9, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2350), "system" },
-                    { 6, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2355), "Cam ve Sakura", 3, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2354), "system" },
-                    { 7, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2358), "Kocaeli Üniversitesi Hastanesi", 4, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2358), "system" },
-                    { 8, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2362), "Gata", 6, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2361), "system" },
-                    { 9, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2365), "Bezmialem Vakıf Üni. Tıp Fakültesi Hastanesi", 7, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2365), "system" }
+                    { 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7553), "AciBadem", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7538), "system" },
+                    { 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7555), "Florence Nightingale", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7555), "system" },
+                    { 3, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7557), "Medicana", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7557), "system" },
+                    { 4, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7559), "Beylikduzu Devlet", 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7558), "system" },
+                    { 5, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7560), "KANUNİ SULTAN SÜLEYMAN", 9, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7560), "system" },
+                    { 6, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7562), "Cam ve Sakura", 3, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7561), "system" },
+                    { 7, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7564), "Kocaeli Üniversitesi Hastanesi", 4, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7563), "system" },
+                    { 8, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7565), "Gata", 6, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7565), "system" },
+                    { 9, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7567), "Bezmialem Vakıf Üni. Tıp Fakültesi Hastanesi", 7, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7566), "system" }
                 });
 
             migrationBuilder.InsertData(
@@ -488,12 +543,12 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "Address", "CityId", "CompanyId", "CreatedOn", "InvoiceTitle", "ModifiedOn", "ModifiedUser", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Esenyurt", 1, 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2939), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2941), "system", "Merkez" },
-                    { 2, "Izmir", 2, 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2946), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2946), "system", "Izmir Sube" },
-                    { 3, "Ankara", 3, 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2949), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2951), "system", "Ankara Sube" },
-                    { 4, "Esenyurt", 1, 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2953), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2954), "system", "Merkez" },
-                    { 5, "Izmir", 2, 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2957), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2958), "system", "Izmir Sube" },
-                    { 6, "Ankara", 3, 2, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2961), "Ortek Ltd.Sti", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2962), "system", "Ankara Sube" }
+                    { 1, "Esenyurt", 1, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7869), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7869), "system", "Merkez" },
+                    { 2, "Izmir", 2, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7871), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7872), "system", "Izmir Sube" },
+                    { 3, "Ankara", 3, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7873), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7874), "system", "Ankara Sube" },
+                    { 4, "Esenyurt", 1, 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7875), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7876), "system", "Merkez" },
+                    { 5, "Izmir", 2, 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7877), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7878), "system", "Izmir Sube" },
+                    { 6, "Ankara", 3, 2, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7879), "Ortek Ltd.Sti", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7879), "system", "Ankara Sube" }
                 });
 
             migrationBuilder.InsertData(
@@ -533,14 +588,14 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "Address", "CityId", "CreatedOn", "HospitalId", "InvoiceTitle", "ModifiedOn", "ModifiedUser", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Acibadem/Kadikoy", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2754), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2756), "system", "Merkez" },
-                    { 2, "Çankaya/Ankara", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2760), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2761), "system", "Ankara" },
-                    { 3, "Tepebaşı/Eskişehir", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2764), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2765), "system", "Eskisehir" },
-                    { 4, "Şişli/İstanbul", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2768), 2, "Florence Nightingale Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2769), "system", "Merkez" },
-                    { 5, "Beylikdüzü/İstanbul", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2772), 3, "Medikana Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2773), "system", "Merkez" },
-                    { 6, "Beylikdüzü/İstanbul", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2776), 4, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2776), "system", "Merkez" },
-                    { 7, "Gazi Osman Pasa/İstanbul", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2779), 5, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2781), "system", "Merkez" },
-                    { 8, "Basaksehir/İstanbul", 1, new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2783), 6, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 17, 18, 29, 2, 859, DateTimeKind.Local).AddTicks(2785), "system", "Merkez" }
+                    { 1, "Acibadem/Kadikoy", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7723), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7724), "system", "Merkez" },
+                    { 2, "Çankaya/Ankara", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7726), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7727), "system", "Ankara" },
+                    { 3, "Tepebaşı/Eskişehir", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7729), 1, "Acibadem Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7729), "system", "Eskisehir" },
+                    { 4, "Şişli/İstanbul", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7730), 2, "Florence Nightingale Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7731), "system", "Merkez" },
+                    { 5, "Beylikdüzü/İstanbul", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7732), 3, "Medikana Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7733), "system", "Merkez" },
+                    { 6, "Beylikdüzü/İstanbul", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7734), 4, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7735), "system", "Merkez" },
+                    { 7, "Gazi Osman Pasa/İstanbul", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7786), 5, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7787), "system", "Merkez" },
+                    { 8, "Basaksehir/İstanbul", 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7788), 6, "Devlet Saglik Hizmetleri A.S.", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(7789), "system", "Merkez" }
                 });
 
             migrationBuilder.InsertData(
@@ -548,10 +603,10 @@ namespace SlnErp102.Data.Migrations
                 columns: new[] { "Id", "BranchNoId", "CompanyId", "CreatedOn", "Description", "EntryDate", "ModifiedOn", "ModifiedUser", "Picture", "ProductCode", "SutCode", "SutDescription", "SutPrice" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8065), "Suture Passer, Transosseous", new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8052), new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8066), "system", "product1.jpg", "AR-1000", "AE-1000", "DÜZ TİTANYUM", 125.75m },
-                    { 2, 2, 1, new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8072), "Suture Passer, Transosseous1", new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8070), new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8072), "system", "product2.jpg", "AR-1001", "AE-1001", "DÜZ TİTANYUM", 155.75m },
-                    { 3, 1, 1, new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8075), "Suture Passer, Transosseous2", new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8073), new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8075), "system", "product3.jpg", "AR-1002", "AE-1002", "DÜZ TİTANYUM", 115.75m },
-                    { 4, 1, 1, new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8078), "Suture Passer, Transosseous3", new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8077), new DateTime(2022, 1, 17, 18, 29, 2, 863, DateTimeKind.Local).AddTicks(8079), "system", "product4.jpg", "AR-1003", "AE-1003", "DÜZ TİTANYUM", 215.25m }
+                    { 1, 1, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8502), "Suture Passer, Transosseous", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8498), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8503), "system", "product1.jpg", "AR-1000", "AE-1000", "DÜZ TİTANYUM", 125.75m },
+                    { 2, 2, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8506), "Suture Passer, Transosseous1", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8504), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8507), "system", "product2.jpg", "AR-1001", "AE-1001", "DÜZ TİTANYUM", 155.75m },
+                    { 3, 1, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8509), "Suture Passer, Transosseous2", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8508), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8509), "system", "product3.jpg", "AR-1002", "AE-1002", "DÜZ TİTANYUM", 115.75m },
+                    { 4, 1, 1, new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8512), "Suture Passer, Transosseous3", new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8511), new DateTime(2022, 1, 18, 16, 11, 56, 357, DateTimeKind.Local).AddTicks(8512), "system", "product4.jpg", "AR-1003", "AE-1003", "DÜZ TİTANYUM", 215.25m }
                 });
 
             migrationBuilder.CreateIndex(
@@ -635,6 +690,16 @@ namespace SlnErp102.Data.Migrations
                 column: "HospitalTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_tblProductEntries_CompanyId",
+                table: "tblProductEntries",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tblProductEntries_ProductId",
+                table: "tblProductEntries",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_tblProducts_CompanyId",
                 table: "tblProducts",
                 column: "CompanyId");
@@ -658,7 +723,10 @@ namespace SlnErp102.Data.Migrations
                 name: "tblHospitalDetails");
 
             migrationBuilder.DropTable(
-                name: "tblProducts");
+                name: "tblProductEntries");
+
+            migrationBuilder.DropTable(
+                name: "tblStockStates");
 
             migrationBuilder.DropTable(
                 name: "tblDoctors");
@@ -673,7 +741,7 @@ namespace SlnErp102.Data.Migrations
                 name: "tblHospitalBranches");
 
             migrationBuilder.DropTable(
-                name: "tblCompanies");
+                name: "tblProducts");
 
             migrationBuilder.DropTable(
                 name: "tblCities");
@@ -682,10 +750,13 @@ namespace SlnErp102.Data.Migrations
                 name: "tblHospitals");
 
             migrationBuilder.DropTable(
-                name: "tblCompanyTypes");
+                name: "tblCompanies");
 
             migrationBuilder.DropTable(
                 name: "tblHospitalTypes");
+
+            migrationBuilder.DropTable(
+                name: "tblCompanyTypes");
         }
     }
 }

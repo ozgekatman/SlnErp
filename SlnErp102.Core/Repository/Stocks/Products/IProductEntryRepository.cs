@@ -9,5 +9,6 @@ namespace SlnErp102.Core.Repository.Stocks.Products
 {
     public interface IProductEntryRepository:IRepository<ProductEntry>
     {
+        Task<IEnumerable<ProductEntry>> DistinctListByCompany();
     }
 }

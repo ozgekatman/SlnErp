@@ -21,6 +21,7 @@ using SlnErp102.Data.Seed.Info.Employees;
 using SlnErp102.Data.Seed.Info.Hospitals;
 using SlnErp102.Data.Seed.Stocks.Products;
 using SlnErp102.Data.Configuration.Stocks.Products;
+using SlnErp102.Core.Models.Stocks.Products;
 
 namespace SlnErp102.Data
 {
@@ -49,6 +50,9 @@ namespace SlnErp102.Data
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeDetail> EmployeeDetails { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductEntry> ProductEntries { get; set; }
+        public DbSet<StockState> StockStates { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

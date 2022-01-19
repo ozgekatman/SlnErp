@@ -14,6 +14,12 @@ namespace SlnErp102.Service.Services.Stocks.Products
     {
         public ProductEntryService(IUnitOfWork unitOfWork, IRepository<ProductEntry> repository) : base(unitOfWork, repository)
         {
+
+        }
+
+        Task<IEnumerable<ProductEntry>> IProductEntryService.DistinctListByCompany()
+        {
+            return _unitOfWork.ProductEntryRepo.DistinctListByCompany(); //repodaki methodu kullanmak için
         }
     }
 }

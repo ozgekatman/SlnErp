@@ -32,7 +32,6 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
             return Ok(_mapper.Map<IEnumerable<StockStateDto>>(sto));
         }
 
-        // GET: api/StockStates/5
         [HttpGet("{id}")]
         public async Task<ActionResult<StockState>> GetStockState(int id)
         {
