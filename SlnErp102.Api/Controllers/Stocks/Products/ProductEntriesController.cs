@@ -28,7 +28,7 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
         {
             _service = service;
             _cservice = cservice;
-            _sservice = sservice;
+            _sservice = sservice; 
             _mapper = mapper;
         }
 
