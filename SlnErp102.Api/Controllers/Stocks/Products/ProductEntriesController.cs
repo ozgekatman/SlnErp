@@ -35,23 +35,8 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductEntry>>> GetProductEntry()
         {
-           // var pro = await _service.GetAllAsync();
             var test = await _service.DistinctListByCompany();
-            ProductEntryDistinct p = new ProductEntryDistinct();
-            foreach (var item in test)
-            {
-                var company=await _cservice.GetByIdAsync(item.CompanyId);
-                if (company == null)
-                {
-                    return NotFound();
-                }
-                p.CompanyId=item.CompanyId;
-                p.CompanyName=company.Name;
-                p.EntryDate = item.EntryDate;
-                p.InvoiceNumber=item.InvoiceNumber;
-                return Ok(_mapper.Map<ProductEntryDistinctDto>(p));
-            }//Product classından distincte doğru mapledik.Eksik var.ProductEntryDistinct classı oluşturmalıyız
-            return BadRequest();
+            return Ok(_mapper.Map<IEnumerable<ProductEntryDistinctDto>>(test));
         }
 
         [HttpGet("{id}")]

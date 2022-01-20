@@ -67,8 +67,8 @@ namespace SlnErp102.Api.Mapping
             CreateMap<StockState, StockStateDto>();
             CreateMap<StockStateDto, StockState>();
 
-            CreateMap<ProductEntryDistinct, ProductEntryDistinctDto>();//Değişiklikler
-            CreateMap<ProductEntryDistinctDto, ProductEntryDistinct>();
+            CreateMap<ProductEntry, ProductEntryDistinctDto>();//Değişiklikler
+            CreateMap<ProductEntryDistinctDto, ProductEntry>();
         }
     }
 }

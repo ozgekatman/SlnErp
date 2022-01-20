@@ -13,7 +13,7 @@ namespace SlnErp102.Data.Configuration.Stocks.Products
     {
         public void Configure(EntityTypeBuilder<ProductEntry> builder)
         {
-            builder.HasKey(s=>s.Id);
+            builder.HasKey(s => s.Id);
             builder.Property(s => s.Id).UseIdentityColumn();
             builder.Property(s => s.InvoiceNumber).IsRequired().HasMaxLength(20);
             builder.Property<DateTime>(s => s.EntryDate).HasColumnType("date");
@@ -26,6 +26,8 @@ namespace SlnErp102.Data.Configuration.Stocks.Products
             builder.Property<DateTime>(s => s.CreatedOn).HasColumnType("date");
             builder.Property<DateTime>(s => s.ModifiedOn).HasColumnType("date");
             builder.Property(s => s.ModifiedUser).HasMaxLength(50);
+            builder.HasOne(s => s.Company).WithMany(x => x.ProductEntries).HasForeignKey(x => x.CompanyId).OnDelete(DeleteBehavior.NoAction);
+            
             builder.ToTable("tblProductEntries");
 
         }

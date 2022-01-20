@@ -100,6 +100,7 @@ namespace SlnErp102.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
 
             modelBuilder.ApplyConfiguration(new ProductEntryConfig());
+            modelBuilder.ApplyConfiguration(new ProductEntrySeed());
             
             modelBuilder.ApplyConfiguration(new StockStateConfig());
         }
