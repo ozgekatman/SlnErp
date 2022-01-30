@@ -22,5 +22,11 @@ namespace SlnErp102.Data.Repository.Stocks.Products
                 .GroupBy(x => new { x.CompanyId, x.EntryDate, x.InvoiceNumber,x.Company.Name }).Select(g => g.First()).ToListAsync();
             return query;
         }
+
+        public async Task<IEnumerable<ProductEntry>> ProductEntryListByInvoice(string invoice)
+        {
+            IEnumerable<ProductEntry> entries= await SlnDbContext.ProductEntries.Include("Company").Include("Product").Where(x=>x.InvoiceNumber==invoice).ToListAsync();
+            return entries;
+        }
     }
 }

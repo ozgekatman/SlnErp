@@ -28,7 +28,9 @@ namespace SlnErp102.Data.Seed.Stocks.Products
                     ProductionDate = DateTime.Now,
                     LotSerial = "1",
                     Quantity = 100,
-                    Description = "Test1"
+                    Description = "Test1",
+                    ModifiedUser = "system",
+                    EntryDate = DateTime.Now
                 },
                 new ProductEntry
                 {
@@ -45,7 +47,8 @@ namespace SlnErp102.Data.Seed.Stocks.Products
                     LotSerial = "2",
                     Description = "Test2",
                     Quantity = 100,
-                    ModifiedUser="system"
+                    ModifiedUser="system" ,
+                    EntryDate = DateTime.Now
                 },
                 new ProductEntry
                 {
@@ -61,8 +64,9 @@ namespace SlnErp102.Data.Seed.Stocks.Products
                     ProductionDate = DateTime.Now,
                     LotSerial = "1",
                     Description = "Test3",
-                    Quantity = 100,
-                    ModifiedUser = "system"
+                    Quantity = 75,
+                    ModifiedUser = "system",
+                    EntryDate = DateTime.Now
 
                 },
                 new ProductEntry
@@ -79,8 +83,9 @@ namespace SlnErp102.Data.Seed.Stocks.Products
                     ProductionDate = DateTime.Now,
                     LotSerial = "1",
                     Description = "Test4",
-                    Quantity = 100,
-                    ModifiedUser = "system"
+                    Quantity = 50,
+                    ModifiedUser = "system",
+                    EntryDate = DateTime.Now
                 }
                 );
         }

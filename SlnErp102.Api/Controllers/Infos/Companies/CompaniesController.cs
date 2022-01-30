@@ -15,6 +15,7 @@ namespace SlnErp102.Api.Controllers.Infos.Companies
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class CompaniesController : ControllerBase
     {
         private readonly ICompanyService _service;

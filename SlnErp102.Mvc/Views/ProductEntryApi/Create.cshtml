@@ -1,0 +1,159 @@
+﻿@model SlnErp102.Core.Models.Stocks.Products.ProductEntry
+@{
+
+    ViewData["Title"] = "Create";
+}
+<div class="col-12 mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white" style="height:45px;">
+            <h4>Create Invoice</h4>
+        </div>
+        <form id="Form" enctype="multipart/form-data" asp-action="Create">
+            <div class="container-fluid btn-group p-3">
+                <div class="col-12">
+                    <div class="row">
+                        <div asp-validation-summary=" ModelOnly" class="text-danger"></div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Company.Name" class="form-label" ></label>
+                                <select asp-for="Company.Name" class="form-control" asp-items="ViewBag.Company"></select>
+                                <span asp-validation-for="Company.Name" class=text-danger></span>
+                            </div>
+                        </div>
+
+                        @*<div class="col-md-6">
+                            <div asp-validation-summary=" ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                            <label asp-for="CompanyBranchName" class="control-label"></label>
+                            <select asp-for="CompanyBranchName" class="form-label" asp-items="ViewBag.CompanyBranchName"></select>
+                            <span asp-validation-for="CompanyBranchName" class=text-danger></span>
+                            </div>
+                            </div>*@
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="InvoiceNumber" class="form-label" value="Invoice Number"></label>
+                                <input asp-for="InvoiceNumber" class="form-control" />
+                                <span asp-validation-for="InvoiceNumber" class=text-danger></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="EntryDate" class="form-label" value="Entry Date"></label>
+                                <input asp-for="EntryDate" class="form-control" type="date" />
+                                <span asp-validation-for="InvoiceNumber" class=text-danger></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="EntryTypeId" class="form-label" value="Entry Type"></label>
+                                <select asp-for="EntryTypeId" class="form-control" asp-items="ViewBag.EntryType"></select>
+                                <span asp-validation-for="EntryTypeId" class=text-danger></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description" class="form-label" value="Description"></label>
+                                <input asp-for="Description" class="form-control" />
+                                <span asp-validation-for="Description" class=text-danger></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container col-12">
+                <div class="col-md-12" bg-light style="height:200px;overflow-y:auto">
+                    <table id="Table" class="table table-sm CodesTable">
+                        <thead>
+                            <tr>
+                                <th>Barcode</th>
+                                <th>Quantity</th>
+                                <th>Production Date</th>
+                                <th>DateExpiration Date</th>
+                                <th>
+                                    <button id='btnaddExperience' type="button" class="btn btn-sm btn-secondary visible"
+                                            onclick="AddItem(this)">
+                                        Add
+                                    </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input asp-for="Barcode" class="form-control" /></td>
+                                <td><input asp-for="Quantity" class="form-control" /></td>
+                                <td><input asp-for="ProductionDate" class="form-control" /></td>
+                                <td><input asp-for="ExpirationDate" class="form-control" /></td>
+                                <td>
+                                    <button id='btnremove' type="button" class="btn btn-sm btn-danger visible"
+                                            onclick="DeleteItem(this)">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <input type="hidden" id="hdnLastIndex" value="0" />
+
+                <div class="col-12 btn-group">
+                    <div class="col-6 form-group text-right p-2">
+                        <a asp-action="Index" class="btn btn-secondary">&nbsp;Back&nbsp;</a>
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+	@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+<script type="text/javascript">
+
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+
+
+
+    function DeleteItem(btn) {
+        var table=document.getElementById('Table');
+        var rows = table.getElementsByTagName('tr');
+        if(rows.length==2){
+            alert("This row cannot be deleted");
+            return;
+        }
+        $(btn).closest('tr').remove();
+    }
+
+    function AddItem(btn) {
+
+        var table = document.getElementById('Table');
+        var rows = table.getElementsByTagName('tr');
+
+        var rowOuterHtml = rows[rows.length - 1].outerHTML;
+
+        var lastrowIdx = rows.length-1;
+
+        var nextrowIdx = eval(lastrowIdx) + 1;
+
+        rowOuterHtml = rowOuterHtml.replaceAll('_' + lastrowIdx + '_', '_' + nextrowIdx + '_');
+        rowOuterHtml = rowOuterHtml.replaceAll('[' + lastrowIdx + ']', '[' + nextrowIdx + ']');
+        rowOuterHtml = rowOuterHtml.replaceAll('-' + lastrowIdx, '-' + nextrowIdx);
+
+        var newRow = table.insertRow();
+        newRow.innerHTML = rowOuterHtml;
+    }
+
+</script>
+}

@@ -12,7 +12,7 @@ using SlnErp102.Data;
 namespace SlnErp102.Data.Migrations
 {
     [DbContext(typeof(SlnDbContext))]
-    [Migration("20220119150050_Init")]
+    [Migration("20220120171933_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -212,8 +212,8 @@ namespace SlnErp102.Data.Migrations
                         {
                             Id = 1,
                             CompanyTypeId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5640),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5640),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8789),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8789),
                             ModifiedUser = "system",
                             Name = "Ortek"
                         },
@@ -221,8 +221,8 @@ namespace SlnErp102.Data.Migrations
                         {
                             Id = 2,
                             CompanyTypeId = 2,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5643),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5644),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8792),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8793),
                             ModifiedUser = "system",
                             Name = "Syntex"
                         },
@@ -230,8 +230,8 @@ namespace SlnErp102.Data.Migrations
                         {
                             Id = 3,
                             CompanyTypeId = 3,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5645),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5646),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8795),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8795),
                             ModifiedUser = "system",
                             Name = "Kayacan"
                         });
@@ -289,9 +289,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Esenyurt",
                             CityId = 1,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5355),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8568),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5355),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8569),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -301,9 +301,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Izmir",
                             CityId = 2,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5357),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8571),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5358),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8572),
                             ModifiedUser = "system",
                             Name = "Izmir Sube"
                         },
@@ -313,9 +313,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Ankara",
                             CityId = 3,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5359),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8574),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5360),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8574),
                             ModifiedUser = "system",
                             Name = "Ankara Sube"
                         },
@@ -325,9 +325,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Esenyurt",
                             CityId = 1,
                             CompanyId = 2,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5361),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8576),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5362),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8576),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -337,9 +337,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Izmir",
                             CityId = 2,
                             CompanyId = 2,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5363),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8578),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5363),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8578),
                             ModifiedUser = "system",
                             Name = "Izmir Sube"
                         },
@@ -349,9 +349,9 @@ namespace SlnErp102.Data.Migrations
                             Address = "Ankara",
                             CityId = 3,
                             CompanyId = 2,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5365),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8580),
                             InvoiceTitle = "Ortek Ltd.Sti",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5365),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8580),
                             ModifiedUser = "system",
                             Name = "Ankara Sube"
                         });
@@ -533,11 +533,11 @@ namespace SlnErp102.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5721),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8866),
                             CityId = 1,
                             ClinicAddress = "Fulya/Besiktas",
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5721),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5722),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8867),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8867),
                             ModifiedUser = "system",
                             Name = "Omer Taser",
                             Title = 0
@@ -545,11 +545,11 @@ namespace SlnErp102.Data.Migrations
                         new
                         {
                             Id = 2,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5724),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8869),
                             CityId = 1,
                             ClinicAddress = "Tesvikiye/Sisli",
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5724),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5725),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8870),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8870),
                             ModifiedUser = "system",
                             Name = "Mehmet Demirhan",
                             Title = 0
@@ -557,11 +557,11 @@ namespace SlnErp102.Data.Migrations
                         new
                         {
                             Id = 3,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5726),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8872),
                             CityId = 1,
                             ClinicAddress = "Abide-i Hürriyet Cd No:166, 34381 Şişli/İstanbul",
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5727),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5727),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8872),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8873),
                             ModifiedUser = "system",
                             Name = "Azmi Hamzaoglu",
                             Title = 0
@@ -708,44 +708,44 @@ namespace SlnErp102.Data.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5886),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9019),
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5887),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9020),
                             Description = "Aciklama1",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5887),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9020),
                             ModifiedUser = "system",
                             Name = "Serdar",
                             Picture = "user1.png",
-                            WorkEnd = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5885),
-                            WorkStart = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5884)
+                            WorkEnd = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9018),
+                            WorkStart = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9017)
                         },
                         new
                         {
                             Id = 2,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5890),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9023),
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5891),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9024),
                             Description = "Aciklama2",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5892),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9025),
                             ModifiedUser = "system",
                             Name = "Recep",
                             Picture = "user2.png",
-                            WorkEnd = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5889),
-                            WorkStart = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5889)
+                            WorkEnd = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9023),
+                            WorkStart = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9022)
                         },
                         new
                         {
                             Id = 3,
-                            BirthDay = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5894),
+                            BirthDay = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9027),
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5894),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9028),
                             Description = "Aciklama3",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5895),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9028),
                             ModifiedUser = "system",
                             Name = "Melek",
                             Picture = "user3.png",
-                            WorkEnd = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5893),
-                            WorkStart = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5893)
+                            WorkEnd = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9027),
+                            WorkStart = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9026)
                         });
                 });
 
@@ -856,82 +856,82 @@ namespace SlnErp102.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5103),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8224),
                             HospitalName = "AciBadem",
                             HospitalTypeId = 1,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5091),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8212),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5105),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8227),
                             HospitalName = "Florence Nightingale",
                             HospitalTypeId = 1,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5105),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8226),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5107),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8229),
                             HospitalName = "Medicana",
                             HospitalTypeId = 1,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5106),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8228),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5109),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8230),
                             HospitalName = "Beylikduzu Devlet",
                             HospitalTypeId = 2,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5108),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8230),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5110),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8232),
                             HospitalName = "KANUNİ SULTAN SÜLEYMAN",
                             HospitalTypeId = 9,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5110),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8231),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5112),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8234),
                             HospitalName = "Cam ve Sakura",
                             HospitalTypeId = 3,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5111),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8233),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5114),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8236),
                             HospitalName = "Kocaeli Üniversitesi Hastanesi",
                             HospitalTypeId = 4,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5113),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8235),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5116),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8238),
                             HospitalName = "Gata",
                             HospitalTypeId = 6,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5115),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8237),
                             ModifiedUser = "system"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5117),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8240),
                             HospitalName = "Bezmialem Vakıf Üni. Tıp Fakültesi Hastanesi",
                             HospitalTypeId = 7,
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5116),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8239),
                             ModifiedUser = "system"
                         });
                 });
@@ -987,10 +987,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 1,
                             Address = "Acibadem/Kadikoy",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5264),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8475),
                             HospitalId = 1,
                             InvoiceTitle = "Acibadem Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5266),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8476),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -999,10 +999,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 2,
                             Address = "Çankaya/Ankara",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5268),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8479),
                             HospitalId = 1,
                             InvoiceTitle = "Acibadem Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5269),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8480),
                             ModifiedUser = "system",
                             Name = "Ankara"
                         },
@@ -1011,10 +1011,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 3,
                             Address = "Tepebaşı/Eskişehir",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5271),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8481),
                             HospitalId = 1,
                             InvoiceTitle = "Acibadem Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5271),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8482),
                             ModifiedUser = "system",
                             Name = "Eskisehir"
                         },
@@ -1023,10 +1023,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 4,
                             Address = "Şişli/İstanbul",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5272),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8483),
                             HospitalId = 2,
                             InvoiceTitle = "Florence Nightingale Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5273),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8484),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -1035,10 +1035,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 5,
                             Address = "Beylikdüzü/İstanbul",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5275),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8485),
                             HospitalId = 3,
                             InvoiceTitle = "Medikana Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5275),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8486),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -1047,10 +1047,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 6,
                             Address = "Beylikdüzü/İstanbul",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5276),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8487),
                             HospitalId = 4,
                             InvoiceTitle = "Devlet Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5277),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8488),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -1059,10 +1059,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 7,
                             Address = "Gazi Osman Pasa/İstanbul",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5278),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8490),
                             HospitalId = 5,
                             InvoiceTitle = "Devlet Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5279),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8490),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         },
@@ -1071,10 +1071,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 8,
                             Address = "Basaksehir/İstanbul",
                             CityId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5280),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8492),
                             HospitalId = 6,
                             InvoiceTitle = "Devlet Saglik Hizmetleri A.S.",
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(5281),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(8492),
                             ModifiedUser = "system",
                             Name = "Merkez"
                         });
@@ -1257,10 +1257,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 1,
                             BranchNoId = 1,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6048),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9185),
                             Description = "Suture Passer, Transosseous",
-                            EntryDate = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6044),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6048),
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9181),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9186),
                             ModifiedUser = "system",
                             Picture = "product1.jpg",
                             ProductCode = "AR-1000",
@@ -1273,10 +1273,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 2,
                             BranchNoId = 2,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6051),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9238),
                             Description = "Suture Passer, Transosseous1",
-                            EntryDate = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6050),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6052),
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9236),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9239),
                             ModifiedUser = "system",
                             Picture = "product2.jpg",
                             ProductCode = "AR-1001",
@@ -1289,10 +1289,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 3,
                             BranchNoId = 1,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6054),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9241),
                             Description = "Suture Passer, Transosseous2",
-                            EntryDate = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6053),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6055),
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9240),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9242),
                             ModifiedUser = "system",
                             Picture = "product3.jpg",
                             ProductCode = "AR-1002",
@@ -1305,10 +1305,10 @@ namespace SlnErp102.Data.Migrations
                             Id = 4,
                             BranchNoId = 1,
                             CompanyId = 1,
-                            CreatedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6057),
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9244),
                             Description = "Suture Passer, Transosseous3",
-                            EntryDate = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6056),
-                            ModifiedOn = new DateTime(2022, 1, 19, 18, 0, 49, 473, DateTimeKind.Local).AddTicks(6058),
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9243),
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 823, DateTimeKind.Local).AddTicks(9245),
                             ModifiedUser = "system",
                             Picture = "product4.jpg",
                             ProductCode = "AR-1003",
@@ -1384,6 +1384,80 @@ namespace SlnErp102.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("tblProductEntries", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Barcode = "AR-1000/1",
+                            CompanyId = 1,
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5974),
+                            Description = "Test1",
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5987),
+                            EntryTypeId = 1,
+                            ExpirationDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5983),
+                            InvoiceNumber = "1234",
+                            LotSerial = "1",
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5981),
+                            ModifiedUser = "system",
+                            ProductId = 1,
+                            ProductionDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5985),
+                            Quantity = 100
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Barcode = "AR-1000/2",
+                            CompanyId = 1,
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5989),
+                            Description = "Test2",
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5994),
+                            EntryTypeId = 1,
+                            ExpirationDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5991),
+                            InvoiceNumber = "1234",
+                            LotSerial = "2",
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5990),
+                            ModifiedUser = "system",
+                            ProductId = 1,
+                            ProductionDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5992),
+                            Quantity = 100
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Barcode = "AR-1001/1",
+                            CompanyId = 1,
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5995),
+                            Description = "Test3",
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5998),
+                            EntryTypeId = 1,
+                            ExpirationDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5996),
+                            InvoiceNumber = "1234",
+                            LotSerial = "1",
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5995),
+                            ModifiedUser = "system",
+                            ProductId = 2,
+                            ProductionDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5997),
+                            Quantity = 75
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Barcode = "AR-1002/1",
+                            CompanyId = 1,
+                            CreatedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(5999),
+                            Description = "Test4",
+                            EntryDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(6002),
+                            EntryTypeId = 1,
+                            ExpirationDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(6000),
+                            InvoiceNumber = "4321",
+                            LotSerial = "1",
+                            ModifiedOn = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(6000),
+                            ModifiedUser = "system",
+                            ProductId = 3,
+                            ProductionDate = new DateTime(2022, 1, 20, 20, 19, 32, 824, DateTimeKind.Local).AddTicks(6001),
+                            Quantity = 50
+                        });
                 });
 
             modelBuilder.Entity("SlnErp102.Core.Models.Stocks.Products.StockState", b =>

@@ -14,6 +14,7 @@ namespace SlnErp102.Service.Services.Infos.Hospitals
     {
         public HospitalDetailService(IUnitOfWork unitOfWork, IRepository<HospitalDetail> repository) : base(unitOfWork, repository)
         {
+
         }
     }
 }

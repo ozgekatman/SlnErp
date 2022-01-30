@@ -4,9 +4,11 @@
     {
         public int Id { get; init; }
         public int CompanyId { get; set; }
+        public int ProductId { get; set; }
+        public string CompanyName { get; set; }
+        public string ProductProductCode { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime EntryDate { get; set; }
-        public int ProductId { get; set; }
         public string LotSerial { get; set; }
         public int Quantity { get; set; }
         public int EntryTypeId { get; set; }

@@ -10,5 +10,6 @@ namespace SlnErp102.Core.Service.Stocks.Products
     public interface IProductEntryService:IService<ProductEntry>
     {
         Task<IEnumerable<ProductEntry>> DistinctListByCompany();
+        Task<IEnumerable<ProductEntry>> ProductEntryListByInvoice(string invoice);
     }
 }

@@ -10,10 +10,10 @@ namespace SlnErp102.Core.Models.Stocks.Products
     public  class ProductEntry:BaseEntity//Lot bazlı ürün girişi
     {
         public int CompanyId { get; set; }
+        public int ProductId { get; set; }
         public string InvoiceNumber { get; set; }
         public DateTime EntryDate{ get; set; }
-        public int? ProductId { get; set; }
-        public string LotSerial { get; set; }
+        public string LotSerial { get; set; }//Buna gerek yok bence barcode bazlı giriş yapılıyor
         public int  Quantity { get; set; }
         public int EntryTypeId { get; set; }
         //public int SurgerySide { get; set; }//çıkar
@@ -25,5 +25,8 @@ namespace SlnErp102.Core.Models.Stocks.Products
 
         public virtual Company? Company { get; set; }
         public virtual Product? Product{ get; set; }
+
+        //KDV eksik Fatura Genel No yok
+        //Hangi company branche fatura kesilcek?
     }
 }

@@ -17,9 +17,14 @@ namespace SlnErp102.Service.Services.Stocks.Products
 
         }
 
-        Task<IEnumerable<ProductEntry>> IProductEntryService.DistinctListByCompany()
+        public async Task<IEnumerable<ProductEntry>> DistinctListByCompany()
         {
-            return _unitOfWork.ProductEntryRepo.DistinctListByCompany(); //repodaki methodu kullanmak için
+            return await _unitOfWork.ProductEntryRepo.DistinctListByCompany();
+        }
+
+        public async Task<IEnumerable<ProductEntry>> ProductEntryListByInvoice(string? invoice)
+        {
+            return  await _unitOfWork.ProductEntryRepo.ProductEntryListByInvoice(invoice);
         }
     }
 }

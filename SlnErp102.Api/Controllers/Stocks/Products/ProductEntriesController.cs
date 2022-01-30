@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SlnErp102.Api.DTOs;
 using SlnErp102.Api.DTOs.Stocks.Product;
 using SlnErp102.Core.Models.Stocks.Products;
 using SlnErp102.Core.Service.Infos.Companies;
@@ -37,13 +35,23 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
         {
             var test = await _service.DistinctListByCompany();
             return Ok(_mapper.Map<IEnumerable<ProductEntryDistinctDto>>(test));
+
+            //var test = await _service.GetAllAsync();
+            //return Ok(_mapper.Map<IEnumerable<ProductEntryDto>>(test));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("a/{id:int}")]
         public async Task<ActionResult<ProductEntry>> GetProductEntry(int id)
         {
             var pro = await _service.GetByIdAsync(id);
             return Ok(pro);
+        }
+
+        [HttpGet("b/{invoice}")]
+        public async Task<ActionResult<IEnumerable<ProductEntry>>> GetProductEntryByInvoice(string invoice)
+        {
+            var pro = await _service.ProductEntryListByInvoice(invoice);
+            return Ok(_mapper.Map<IEnumerable<ProductEntryDto>>(pro));
         }
 
         [HttpPut("{id}")]

@@ -12,7 +12,6 @@ namespace SlnErp102.Data.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         SlnDbContext _db;
-
         private IProductEntryRepository _productEntryRepo;
 
         public UnitOfWork(SlnDbContext db)

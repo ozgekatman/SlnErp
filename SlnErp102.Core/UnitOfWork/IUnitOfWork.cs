@@ -10,7 +10,6 @@ namespace SlnErp102.Core.UnitOfWork
     public interface IUnitOfWork
     {
         IProductEntryRepository ProductEntryRepo { get; }
-
         Task CommitAsync();
         void Commit();
     }

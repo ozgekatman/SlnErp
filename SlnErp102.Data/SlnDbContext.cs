@@ -27,6 +27,7 @@ namespace SlnErp102.Data
 {
     public class SlnDbContext : DbContext
     {
+
         public SlnDbContext(DbContextOptions<SlnDbContext> options) : base(options)
         {
 
