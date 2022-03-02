@@ -13,12 +13,14 @@ namespace SlnErp102.Mvc.Controllers
     {
         private readonly ProductEntryApiService _productEntryApiService;
         private readonly CompanyApiService _companyApiService;
+        private readonly ProductEntryDto _productEntryDto;
         private readonly IMapper _mapper;
 
-        public ProductEntryApiController(ProductEntryApiService productEntryApiService, CompanyApiService companyApiService, IMapper mapper)
+        public ProductEntryApiController(ProductEntryApiService productEntryApiService, CompanyApiService companyApiService, ProductEntryDto productEntryDto, IMapper mapper)
         {
             _productEntryApiService = productEntryApiService;
             _companyApiService = companyApiService;
+            _productEntryDto = productEntryDto;
             _mapper = mapper;
         }
 
@@ -50,7 +52,7 @@ namespace SlnErp102.Mvc.Controllers
                                                     Value = s.Id.ToString()
                                                 }).ToList();
             listCompany.AddRange(CompanyItemList);
-            TempData["Company"] = JsonConvert.SerializeObject(listCompany); //hata burda çözüldü ama neden anlamadım
+            TempData["Company"] = JsonConvert.SerializeObject(listCompany); //hata burda çözüldü ama tam anlamadım
             ViewBag.Company = listCompany;
 
 
@@ -72,10 +74,55 @@ namespace SlnErp102.Mvc.Controllers
                 Text = "Muhtelif"
             };
             listEntryType.Add(EntryTypeItem);
-            TempData["EntryType"] = JsonConvert.SerializeObject(listEntryType); //hata burda çözüldü ama neden anlamadım
-            ViewBag.EntryType = listEntryType;
+            TempData["EntryType"] = JsonConvert.SerializeObject(listEntryType);
+            ViewBag.EntryType =  listEntryType;
 
             return View();
+        }
+
+        [HttpGet]
+        public JsonResult getProductCode()
+        {
+            //List<ProductDto> product = new List<ProductDto>();
+
+            var proCode = _productEntryApiService.Products().Result;
+
+            return Json(proCode);
+            //return new JsonResult { Data = proCode, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody]ProductPostUpDto post)
+        {
+            
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult save([FromBody] ProductPostUpDto postData)
+        {
+            if (postData.CompanyId>0)
+            {
+                foreach (var item in postData.Products)
+                {
+                    _productEntryDto.ProductId = item.ProductId;
+                    _productEntryDto.ProductProductCode = item.ProductCode;
+                    _productEntryDto.LotSerial = item.LotSerial;
+                    _productEntryDto.Quantity = item.Quantity;
+                    _productEntryDto.ExpirationDate = item.ExpirationDate;
+                    _productEntryDto.ProductionDate= item.ProductionDate;
+                    _productEntryDto.CompanyId = postData.CompanyId;
+                    _productEntryDto.CompanyName = postData.CompanyName;
+                    _productEntryDto.InvoiceNumber=postData.InvoiceNumber;
+                    _productEntryDto.EntryDate = postData.EntryDate;
+                    _productEntryDto.Description = postData.Description;
+                    _productEntryDto.EntryTypeId = postData.EntryTypeId;
+                    _productEntryDto.Barcode = item.Barcode;
+                    var pro=_productEntryApiService.AddAsync(_productEntryDto).Result;//.Result();
+                }
+                return Json(new { status="true"});
+            }
+            return Json(new { status = "false" });
         }
 
     }

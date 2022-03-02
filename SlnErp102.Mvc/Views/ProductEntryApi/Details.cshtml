@@ -3,55 +3,51 @@
 @{
     ViewData["Title"] = "Details";
 }
-
 @foreach (var item in Model)
 {
-    <input type="text" class="mb-2" readonly=true value="@item.CompanyName" />
-    <input type="text" class="mb-2" readonly=true value="@item.EntryDate" />
-    <input type="text" class="mb-2" readonly=true value="@item.InvoiceNumber" />
-    break;
+    <input type="text" readonly="true" value="@item.CompanyName"/>
+    <input type="text" readonly="true" value="@item.EntryDate.ToShortDateString()"/>
+    <input type="text" readonly="true" value="@item.InvoiceNumber"/>
+                                                break;
 }
+
+<a class="btn btn-primary mb-3 col-md-2 btn-sm" asp-action="Create">Product Adding</a>
 <table class="table table-bordered">
     <thead>
-        <tr>
-@*            <th>Id</th>
-            <th>Company Id</th>
-            <th>Product Id</th>
-            <th>Company Name</th>*@
-            <th>Product Code</th>
-            <th>Barcode</th>
-            <th>Lot Serial</th>
-           @* <th>Entry Date</th>*@
-            <th>Invoice Number</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Production Date</th>
-            <th>Expiration Date</th>
-        </tr>
+    <tr>
+        <th>Id</th>
+        @*<th>Company Id</th>*@
+        <th>Urun Kodu</th>
+        <th>Lot Serial No</th>
+        @*<th>Barcode</th>*@
+        @*<th>Entry Date</th>*@
+        @*<th>Company Name</th>*@
+        @*<th>Invoice Number</th>*@
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Production Date</th>
+        <th>Expiration Date</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-@*                <th class="col-md-1">@item.Id</th>
-                <th class="col-md-1">@item.CompanyId</th>
-                <th class="col-md-1">@item.ProductId</th>
-                <th class="col-md-3">@item.CompanyName</th>*@
-                <th class="col-md-3">@item.ProductProductCode</th>
-                <th class="col-md-2">@item.Barcode</th>
-                <th class="col-md-2">@item.LotSerial</th>
-@*                <th class="col-md-2">@item.EntryDate</th>*@
-                <th class="col-md-1">@item.InvoiceNumber</th>
-                <th class="col-md-3">@item.Description</th>
-                <th class="col-md-1">@item.Quantity</th>
-                <th class="col-md-2">@item.ProductionDate</th>
-                <th class="col-md-2">@item.ExpirationDate</th>
-            </tr>
-        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th class="col-md-1">@item.Id</th>
+            @*<th class="col-md-1">@item.CompanyId</th>*@
+            <th class="col-md-1">@item.ProductProductCode</th>
+            <th class="col-md-1">@item.LotSerial</th>
+            @*<th class="col-md-2">@item.Barcode</th>*@
+            @*<th class="col-md-2">@item.EntryDate</th>
+            <th class="col-md-3">@item.CompanyName</th>
+            <th class="col-md-1">@item.InvoiceNumber</th>*@
+            <th class="col-md-3">@item.Description</th>
+            <th class="col-md-1">@item.Quantity</th>
+            <th class="col-md-2">@item.ProductionDate.ToShortDateString()</th>
+            <th class="col-md-2">@item.ExpirationDate</th>
+            
+        </tr>
+    }
     </tbody>
 </table>
-<a class="btn btn-primary mb-3 btn-sm" asp-action="Create">Product Adding</a>
-
-<a class="btn btn-secondary mb-3 btn-sm" asp-action="Index">Geri Dön</a>
-
-
+<a class="btn btn-secondary btn-sm" asp-action="Index">Geri Dön</a>

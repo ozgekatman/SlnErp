@@ -82,9 +82,9 @@ namespace SlnErp102.Api.Controllers.Stocks.Products
         [HttpPost]
         public async Task<ActionResult<ProductEntry>> PostProductEntry(ProductEntryDto productEntryDto)
         {
-            var pro = await _service.AddRangeAsync(_mapper.Map<IEnumerable<ProductEntry>>(productEntryDto));
+            var pro = await _service.AddAsync(_mapper.Map<ProductEntry>(productEntryDto));
             //_sservice.AddAsync
-            return Created(string.Empty, _mapper.Map<IEnumerable<ProductEntryDto>>(pro));
+            return Created(string.Empty, _mapper.Map<ProductEntryDto>(pro));
         }
 
         [HttpDelete("{id}")]

@@ -28,6 +28,7 @@ using SlnErp102.Data.Repository.Stocks.Products;
 using SlnErp102.Core.UnitOfWork;
 using SlnErp102.Data.UnitOfWork;
 using SlnErp102.Mvc.ApiService.Infos.Companies;
+using SlnErp102.Api.DTOs.Stocks.Product;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,10 @@ builder.Services.AddHttpClient<CompanyApiService>(ops =>
 });
 // Add services to the container.
 builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddScoped(typeof(ProductEntryDto));
+
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 
